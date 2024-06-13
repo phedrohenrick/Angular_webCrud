@@ -15,10 +15,10 @@ export class ProdutosComponent implements OnInit {
   ] ;
   displayedColumns = ['_id','name','price_in_cents','ativo'];
 
-produtosService : ProdutosService;
+//produtosService : ProdutosService;
 
-  constructor(){
-    this.produtosService = new ProdutosService();
+  constructor(private produtosService : ProdutosService){
+   // this.produtosService = new ProdutosService();
     this.produtos = this.produtosService.list();
   }
 
