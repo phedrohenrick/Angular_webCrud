@@ -15,8 +15,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule
-  
-    
   ],
   providers: [
     provideClientHydration(),
