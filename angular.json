@@ -37,6 +37,11 @@
               "src/assets"
             ],
             "styles": [
+                "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap",
+                "https://fonts.googleapis.com/icon?family=Material+Icons",
+                "src/styles.css"
+              ],
+            "styles": [
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
