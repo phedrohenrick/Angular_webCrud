@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "1",
+    "name": "camiseta nike",
+    "price_in_cents": 4000,
+    "ativo": true
+  },
+  {
+    "_id": "2",
+    "name": "tênis adidas",
+    "price_in_cents": 12000,
+    "ativo": true
+  },
+  {
+    "_id": "3",
+    "name": "calça jeans levi's",
+    "price_in_cents": 8500,
+    "ativo": false
+  },
+  {
+    "_id": "4",
+    "name": "moletom puma",
+    "price_in_cents": 10000,
+    "ativo": true
+  },
+  {
+    "_id": "5",
+    "name": "jaqueta the north face",
+    "price_in_cents": 25000,
+    "ativo": false
+  },
+  {
+    "_id": "6",
+    "name": "shorts nike",
+    "price_in_cents": 3500,
+    "ativo": true
+  },
+  {
+    "_id": "7",
+    "name": "boné new era",
+    "price_in_cents": 3000,
+    "ativo": true
+  },
+  {
+    "_id": "8",
+    "name": "relógio casio",
+    "price_in_cents": 15000,
+    "ativo": false
+  },
+  {
+    "_id": "9",
+    "name": "meia stance",
+    "price_in_cents": 2000,
+    "ativo": true
+  },
+  {
+    "_id": "10",
+    "name": "óculos ray-ban",
+    "price_in_cents": 20000,
+    "ativo": true
+  }
+]
