@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Produtos } from '../model/produtos';
 import { HttpClient } from '@angular/common/http';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
 
+  private readonly API = '/assets/produtos.json' // por esse caminho encontrará o lugar onde estarão os dados para requisições http
+
   constructor(private httpClient : HttpClient) { }
 
-  list(): Produtos[] { 
-    return [{_id: 1 , name:'camiseta',price_in_cents:2000, ativo: true}];
+  list() { 
+    return this.httpClient.get<Produtos[]>(this.API).pipe( 
+      first(),
+      delay(5000),
+      tap(produtos => console.log(produtos)));
   }
-  
+
 }
 
 
