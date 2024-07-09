@@ -8,17 +8,20 @@ import { delay, first, tap } from 'rxjs';
 })
 export class ProdutosService {
 
-  private readonly API = '/assets/produtos.json' // por esse caminho encontrará o lugar onde estarão os dados para requisições http
+  private readonly API = '/api/product' // por esse caminho encontrará o lugar onde estarão os dados para requisições http
 
   constructor(private httpClient : HttpClient) { }
 
   list() { 
     return this.httpClient.get<Produtos[]>(this.API).pipe( 
       first(),
-      delay(5000),
+      delay(2000),
       tap(produtos => console.log(produtos)));
   }
 
+  save(record: Produtos){// responsavel por enviar os dados ao back-end
+      return this.httpClient.post<Produtos>(this.API, record).pipe(first());
+  }
 }
 
 

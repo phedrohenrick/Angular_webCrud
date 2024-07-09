@@ -5,6 +5,8 @@ import { ProdutosService } from '../services/produtos.service';
 import { error } from 'console';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
+import { Action } from 'rxjs/internal/scheduler/Action';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-produtos',
@@ -15,7 +17,7 @@ import { ErrorDialogComponent } from '../../shared/components/error-dialog/error
 export class ProdutosComponent implements OnInit {
 
   produtos$: Observable <Produtos[]>;
-  displayedColumns = ['_id','name','price_in_cents','ativo'];
+  displayedColumns = ['_id','name','price_in_cents','active', 'action'];
   isTrue: boolean = true;
 
  
@@ -24,7 +26,9 @@ export class ProdutosComponent implements OnInit {
 
   constructor(
     private produtosService : ProdutosService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
   ){
    // this.produtosService = new ProdutosService();
     this.produtos$ = produtosService.list().pipe(
@@ -46,4 +50,10 @@ export class ProdutosComponent implements OnInit {
       
   }
 
+
+  onAdd(){
+    this.router.navigate(['new'], {relativeTo: this.route});
+  }
+  
+  
 }
