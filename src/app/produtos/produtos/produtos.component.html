@@ -3,6 +3,9 @@
   <mat-card-content>
     <mat-toolbar color="primary">
       <span >Painel de estoque </span>
+
+
+      
     </mat-toolbar>
 
     <div *ngIf="produtos$  | async as produtos; else loading ">
@@ -11,12 +14,34 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
-    <!-- Name Column -->
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>  
+        
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let produtos">
+
+        <button mat-mini-fab color="primary"  aria-label="adicionar produtos" (click)="onAdd()">
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button mat-mini-fab color="primary"  aria-label="editar produtos">
+          <mat-icon> edit </mat-icon>
+        </button>
+
+        <button mat-mini-fab color="primary"  aria-label="excluir produtos">
+          <mat-icon> delete </mat-icon>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Produtos </th>
       <td mat-cell *matCellDef="let produtos"> {{produtos.name}} </td>
     </ng-container>
-  
+
     <!-- price_in_cents Column -->
     <ng-container matColumnDef="price_in_cents">
       <th mat-header-cell *matHeaderCellDef> Preço </th>
@@ -24,16 +49,13 @@
     </ng-container>
 
     <!-- ativo Ativo -->
-    <ng-container matColumnDef="ativo">
+    <ng-container matColumnDef="active">
       <th mat-header-cell *matHeaderCellDef> Ativo </th>
-      <td mat-cell *matCellDef="let produtos"> {{produtos.ativo}}
+      <td mat-cell *matCellDef="let produtos"> {{produtos.active}}
       
         <div > 
-          <i *ngIf="produtos.ativo" class="material-icons">
-            <mat-icon  aria-hidden = "false"  aria-label = "Exemplo de ícone de página inicial" > {{produtos.ativo | ativo}}</mat-icon >
-          </i>
-          <i *ngIf="!produtos.ativo" class="material-icons">
-            <mat-icon  aria-hidden = "false"  aria-label = "Exemplo de ícone de página inicial" > {{produtos.ativo | ativo}} </mat-icon >
+          <i *ngIf="produtos.active" class="material-icons">
+            <mat-icon  aria-hidden = "false"  aria-label = "Exemplo de ícone de página inicial" > {{produtos.active | active}}</mat-icon >
           </i>
         </div>
 

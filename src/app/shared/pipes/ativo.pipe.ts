@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'ativo'
+  name: 'active'
 })
 export class AtivoPipe implements PipeTransform {
 

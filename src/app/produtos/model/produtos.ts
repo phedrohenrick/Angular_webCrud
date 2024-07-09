@@ -1,12 +1,12 @@
 export interface Produtos {
 
-    _id: number;
+    _id: String;
     
     name: String;
 
     price_in_cents: number; 
 
-    ativo: Boolean;
+    active: Boolean;
     
 }
 
