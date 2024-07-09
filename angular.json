@@ -83,7 +83,8 @@
               "buildTarget": "CrudeAngular:build:production"
             },
             "development": {
-              "buildTarget": "CrudeAngular:build:development"
+              "buildTarget": "CrudeAngular:build:development",
+              "proxyConfig": "src/proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"
