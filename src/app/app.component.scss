@@ -1,0 +1,15 @@
+mat-card{
+    max-width: 80%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.full-width{
+    width: 100%;
+    align-items: center;
+}
+
+.min-width{ // serve para caso precise variar o tamanho da tela
+    width: 100%;
+    min-width: 150px;
+}
