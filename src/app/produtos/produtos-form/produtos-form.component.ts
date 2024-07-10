@@ -1,9 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ControlContainer, FormBuilder, FormGroup } from '@angular/forms';
-import { ProdutosService } from '../services/produtos.service';
-import { error } from 'console';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ifError } from 'assert';
+import { ProdutosService } from '../services/produtos.service';
 
 @Component({
   selector: 'app-produtos-form',
@@ -17,7 +16,10 @@ export class ProdutosFormComponent implements OnInit {
   isActive: boolean = false;
   private _snackBar: any;
   
-  constructor(private formBuilder: FormBuilder, private service: ProdutosService, private snackBar: MatSnackBar){
+  constructor(private formBuilder: FormBuilder,
+     private service: ProdutosService,
+    private snackBar: MatSnackBar,
+     private location:Location){
    
         this.form = this.formBuilder.group({
           name: [null],
@@ -38,12 +40,19 @@ export class ProdutosFormComponent implements OnInit {
     //this.form.clearAsyncValidators;
   }
   onSubmit(){
-    this.service.save(this.form.value).subscribe( result => console.log(result) //, ifError => {this.onError()}
+    this.service.save(this.form.value)
+    .subscribe( result => this.onSuccess()
     );
   }
 
-  onError(){
-    this._snackBar.open
+  private onSuccess(){
+    this.snackBar.open('item adicionado com sucesso', '', {duration: 3000})
+  } 
+  private  onError(){
+    this.snackBar.open('error ao adicionar item', '', {duration: 5000})
+  }
+   onCancel(){
+    this.location.back();
   }
 }
 
