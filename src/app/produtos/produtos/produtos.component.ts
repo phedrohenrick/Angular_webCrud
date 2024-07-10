@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProdutosComponent implements OnInit {
 
   produtos$: Observable <Produtos[]>;
-  displayedColumns = ['_id','name','price_in_cents','active', 'action'];
+  displayedColumns = [/*'_id',*/'name','price_in_cents','active', 'action'];
   isTrue: boolean = true;
 
  
@@ -55,5 +55,8 @@ export class ProdutosComponent implements OnInit {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
   
-  
+  onProducts(){
+    this.router.navigate([''], {relativeTo: this.route});
+  }
+
 }
