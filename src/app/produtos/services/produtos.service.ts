@@ -19,7 +19,7 @@ export class ProdutosService {
       tap(produtos => console.log(produtos)));
   }
 
-  save(record: Produtos){// responsavel por enviar os dados ao back-end
+  save(record: Partial<Produtos>){// responsavel por enviar os dados ao back-end
       return this.httpClient.post<Produtos>(this.API, record).pipe(first());
   }
 }
