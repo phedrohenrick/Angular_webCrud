@@ -1,0 +1,76 @@
+ 
+ 
+ <mat-table  [dataSource]="produtos" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- action Column -->
+    <ng-container matColumnDef="action" >
+      <mat-header-cell *matHeaderCellDef class="action-column-add"> 
+
+        <button 
+        mat-mini-fab 
+        color="primary"  
+        aria-label="adicionar produtos" 
+        (click)="onAdd()"
+        class="action-column-header"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let produtos" class="action-column">
+
+        <button 
+        mat-mini-fab color="primary"
+        aria-label="editar produtos"
+        >
+          <mat-icon> edit </mat-icon>
+        </button>
+
+        <button
+         mat-mini-fab color="primary"  
+         aria-label="excluir produtos"
+         >
+          <mat-icon> delete </mat-icon>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell  *matHeaderCellDef> Produtos </mat-header-cell>
+      <mat-cell  *matCellDef="let produtos"> {{produtos.name}} </mat-cell>
+    </ng-container>
+
+    <!-- price_in_cents Column -->
+    <ng-container matColumnDef="price_in_cents">
+      <mat-header-cell  *matHeaderCellDef> Preço </mat-header-cell>
+      <mat-cell  *matCellDef="let produtos"> {{produtos.price_in_cents}} </mat-cell>
+    </ng-container>
+
+    <!-- ativo Ativo -->
+    <ng-container matColumnDef="active">
+      <mat-header-cell  *matHeaderCellDef> Ativo </mat-header-cell>
+      <mat-cell  *matCellDef="let produtos"> {{produtos.active}}
+      
+        <div > 
+          <i *ngIf="produtos.active" class="material-icons">
+            <mat-icon  aria-hidden = "false"  aria-label = "Exemplo de ícone de página inicial" > {{produtos.active | active}}</mat-icon >
+          </i>
+        </div>
+
+      </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="_id">
+      <mat-header-cell  *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell  *matCellDef="let produtos"> {{produtos._id}} </mat-cell>
+    </ng-container>
+   
+    <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+ 
