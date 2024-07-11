@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ProdutosService } from '../services/produtos.service';
+import { ProdutosService } from '../../services/produtos.service';
 
 @Component({
   selector: 'app-produtos-form',
@@ -12,26 +12,26 @@ import { ProdutosService } from '../services/produtos.service';
 
 export class ProdutosFormComponent implements OnInit {
      
-  form: FormGroup;
+  form= this.formBuilder.group({
+    name: [''],
+    price_in_cents:[],
+    //quantity: [null]
+    active:[false]
+  });
   isActive: boolean = false;
   private _snackBar: any;
   
-  constructor(private formBuilder: FormBuilder,
-     private service: ProdutosService,
-    private snackBar: MatSnackBar,
-     private location:Location){
+  constructor(private formBuilder: NonNullableFormBuilder,
+      private service: ProdutosService,
+      private snackBar: MatSnackBar,
+      private location:Location){
    
-        this.form = this.formBuilder.group({
-          name: [null],
-          price_in_cents:[null],
-          //quantity: [null]
-          active:[null]
-        });
+        this.form
         
       
       }
   ngOnInit(): void {
-   
+      
   }
   toggleActive(): void {
     this.isActive = !this.isActive;

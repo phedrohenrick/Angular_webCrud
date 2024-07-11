@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
-import { Produtos } from '../model/produtos';
-import { ProdutosService } from '../services/produtos.service';
-import { error } from 'console';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, catchError, of } from 'rxjs';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { Produtos } from '../../model/produtos';
+import { ProdutosService } from '../../services/produtos.service';
 
 @Component({
   selector: 'app-produtos',
@@ -15,9 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class ProdutosComponent implements OnInit {
-
   produtos$: Observable <Produtos[]>;
-  displayedColumns = [/*'_id',*/'name','price_in_cents','active', 'action'];
+  //displayedColumns = [/*'_id',*/'name','price_in_cents','active', 'action'];
   isTrue: boolean = true;
 
  
